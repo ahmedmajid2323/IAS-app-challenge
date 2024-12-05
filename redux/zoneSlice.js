@@ -4,7 +4,8 @@ const initialState = {
     factory_data:[],
     factoryAdmin:{
         email:'',
-        displayName:''
+        displayName:'',
+        factory_name:''
     }
 }
 
@@ -14,10 +15,10 @@ export const factorySlice = createSlice({
     reducers:{
         set_factoryAdmin(state , action){
             state.factoryAdmin = action.payload
-        }
+        },
     }   
 })
 
-export const { set_factoryAdmin} = factorySlice.actions
+export const { set_factoryAdmin } = factorySlice.actions
 
 export default factorySlice.reducer

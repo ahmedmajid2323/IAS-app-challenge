@@ -41,7 +41,6 @@ const Industrielle = ({navigation}) => {
         setAir_quality_data(formattedData);
 
         /*************************************data for the factories temprature**************************/
-        console.log(readings)
         
       });
   

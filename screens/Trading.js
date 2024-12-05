@@ -7,27 +7,8 @@ import { useSelector } from 'react-redux';
 
 const Trading = () => {
 
-  const userCredentiels = useSelector(state=>state.factory.factoryAdmin.email)
-
-  const [Factory_data, setFactory_data] = useState({})
-
-  useEffect(() => {
-    const usersCollection = firestore()
-    .collection('zone_industrielles')
-    .doc('zone_gabes')
-    .onSnapshot(documentSnapshot => {
-      const factories = documentSnapshot.data().factories
-      const factory_admin = factories.filter(item=> item.admin.email === userCredentiels)
-      setFactory_data(factory_admin[0])
-    });
-
-    return (
-      usersCollection
-    )
+  const userCredentiels = useSelector(state=>state.factory.factoryAdmin)
   
-  }, [])
-  
-
   const HbarEvaluation = [
     {value: 15, label: 'Jan'},
     {value: 40, label: 'Feb'},
@@ -48,7 +29,7 @@ const Trading = () => {
       <View style={{flexDirection:'row',gap:20,alignItems:'center'}}>
         <Image style={{width:40 , height:40}} source={require('../assets/user.png')} />
         <View style={{flexDirection:'column'}}>
-          <Text style={{color:'white',fontSize:20,fontWeight:700}} >{Factory_data?.admin?.name}</Text>
+          <Text style={{color:'white',fontSize:20,fontWeight:700}} >{userCredentiels.displayName}</Text>
           <Text style={{color:'white',fontSize:20,fontWeight:700}} >Welcome Back</Text>
         </View>
       </View>
